@@ -3,7 +3,7 @@ package com.example.andy.myapplication;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.widget.Button;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.ListView;
@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     
     private int codPosicion =0;
+    private Button btnAgregar;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ListView list = findViewById(R.id.list);
+        this.btnAgregar = (Button) findViewById(R.id.btnAgregar);
         ArrayList<SubjectData> arrayList = new ArrayList<SubjectData>();
         arrayList.add(new SubjectData("PM", "4:00", ""));
         arrayList.add(new SubjectData("PM", "5:00", ""));
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new SubjectData("PM", "12:00", ""));
         CustomAdapter customAdapter = new CustomAdapter(this, arrayList);
         list.setAdapter(customAdapter);
+        
         
         
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -73,11 +76,18 @@ public class MainActivity extends AppCompatActivity {
     }
     
     
+    
     private void abrirEditarActivity() {
         Intent intento = new Intent(MainActivity.this, EditarActivity.class);
 
-        intento.putExtra("item", arrayList.get(codPosicion);
-        intento.putExtra("posicion", codPosicion;
+        intento.putExtra("item", arrayList.get(codPosicion));
+        intento.putExtra("posicion", codPosicion);
+        startActivityForResult(intento, 100);
+    }
+    private void abrirAgregarActivity() {
+        Intent intento = new Intent(MainActivity.this, AgregarActivity.class);
+
+        
         startActivityForResult(intento, 100);
     }
     
