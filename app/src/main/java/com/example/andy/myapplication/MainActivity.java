@@ -81,5 +81,19 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intento, 100);
     }
     
+    @Override
+    public void onResume(){
+            super.onResume();
+            actualizarLista();
+        
+        }
+    
+    private void actualizarLista() {
+        CustomAdapter.clear();
+        CustomAdapter.addAll(arraylist);
+        CustomAdapter.notifyDataSetChanged();
+        
+    }
+    
     
 }
