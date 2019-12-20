@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intento = new Intent(MainActivity.this, EditarActivity.class);
 
         intento.putExtra("item", arrayList.get(codPosicion);
+        intento.putExtra("posicion", codPosicion;
         startActivityForResult(intento, 100);
     }
     
