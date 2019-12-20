@@ -16,6 +16,7 @@
         android:headerDividersEnabled="false"
         andorid:background="#AD0FB2"
         />
+</LinearLayout>
     <Button
         android:id="@+id/btnAgregar"
         android:layout_width="wrap_content"
@@ -27,6 +28,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-</LinearLayout>
+        app:layout_constraintStart_toStartOf="@+id/list" />
 </android.support.constraint.ConstraintLayout>
