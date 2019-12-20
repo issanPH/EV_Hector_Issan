@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                
-                        if(list.remove(codPosicion)){
+                        if(arrayList.remove(codPosicion)){
                             Toast.makeText(getApplicationContext(), "Se ha eliminado correctamente", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(), "No se ha podido eliminar", Toast.LENGTH_LONG).show();
@@ -75,9 +75,8 @@ public class MainActivity extends AppCompatActivity {
     
     private void abrirEditarActivity() {
         Intent intento = new Intent(MainActivity.this, EditarActivity.class);
-        i = lista.get(codPosicion);
 
-        intento.putExtra("item", i);
+        intento.putExtra("item", arrayList.get(codPosicion);
         startActivityForResult(intento, 100);
     }
     
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     
     private void actualizarLista() {
         CustomAdapter.clear();
-        CustomAdapter.addAll(arraylist);
+        CustomAdapter.addAll(arrayList);
         CustomAdapter.notifyDataSetChanged();
         
     }
