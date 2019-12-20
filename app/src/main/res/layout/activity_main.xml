@@ -14,6 +14,7 @@
         android:dividerHeight="1dp"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
+        andorid:background="#AD0FB2"
         />
 </LinearLayout>
 </android.support.constraint.ConstraintLayout>
