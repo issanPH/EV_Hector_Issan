@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Switch;
 
 import com.squareup.picasso.Picasso;
 
@@ -75,11 +76,13 @@ class CustomAdapter implements ListAdapter {
           });
           TextView tittle=convertView.findViewById(R.id.title);
           ImageView imag=convertView.findViewById(R.id.list_image);
+          Switch swOpcion=convertView.findViewById(R.id.swOpcion);
           tittle.setText(subjectData.SubjectName);
-          tittle.setText(subjectData.Link);
+          tittle2.setText(subjectData.Link);
           Picasso.with(context)
                   .load(subjectData.Image)
                   .into(imag);
+          
 
       }
         return convertView;
