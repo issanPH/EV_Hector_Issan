@@ -56,7 +56,7 @@ public class EditarSerieActivity extends AppCompatActivity {
                
                 data.setLink(editCategoria.getText());
 
-                if() {
+                if(true) {
                     Toast.makeText(getApplicationContext(), "Actualizado!", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "NO Actualizado!", Toast.LENGTH_LONG).show();
