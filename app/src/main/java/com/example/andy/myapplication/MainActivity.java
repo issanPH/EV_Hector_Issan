@@ -1,13 +1,20 @@
 package com.example.andy.myapplication;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+    
+    private int codPosicion =0;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +29,57 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new SubjectData("PM", "12:00", ""));
         CustomAdapter customAdapter = new CustomAdapter(this, arrayList);
         list.setAdapter(customAdapter);
+        
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Desea borrar?");
+        builder.setPositiveButton("Si, borrar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+               
+                        if(list.remove(codPosicion)){
+                            Toast.makeText(getApplicationContext(), "Se ha eliminado correctamente", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "No se ha podido eliminar", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        
+        
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int posicion, long l) {
+                codPosicion = posicion;
+                dialog.show();
+                return true;
+            }
+        });
+        
+        listSeries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicion, long l) {
+                codPodicion = posicion;
+                abrirEditarActivity();
+            }
+        });
     }
+    
+    
+    private void abrirEditarActivity() {
+        Intent intento = new Intent(MainActivity.this, EditarActivity.class);
+        i = lista.get(codPosicion);
+
+        intento.putExtra("item", i);
+        startActivityForResult(intento, 100);
+    }
+    
+    
 }
