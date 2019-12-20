@@ -16,5 +16,17 @@
         android:headerDividersEnabled="false"
         andorid:background="#AD0FB2"
         />
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="299dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="19dp"
+        android:text="Agregar Alarma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </LinearLayout>
 </android.support.constraint.ConstraintLayout>
