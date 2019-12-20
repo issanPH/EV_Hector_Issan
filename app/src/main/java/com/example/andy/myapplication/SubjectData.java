@@ -10,4 +10,17 @@ class SubjectData {
         this.Link = link;
         this.Image = image;
     }
+
+    public void setSubjectName(int id) {
+        this.id = id;
+    }
+
+
+
+    public void setLink(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
 }
